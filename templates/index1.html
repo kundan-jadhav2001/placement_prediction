@@ -1,40 +1,26 @@
+{% extends "base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
+{% block head %}
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <title>GIT college website</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
-</head>
-<body>
-<section class="header">
-    <nav>
-        <a href="signinup"><img src="{% static 'images/logo.png' %}"></a>    
-        <div class="nav-links" id="navLinks">
-            <img src="{% static 'images/svgs/menu.png' %}", style="height:30px, width:30px">
-           <!--<i class="fa fa-times" onclick="hideMenu()"></i>-->
-            <ul>
-                <li><a href="">HOME</a></li>
-                <li><a href="">ABOUT</a></li>
-                <li><a href="">COURSE</a></li>
-                <li><a href="">BLOG</a></li>
-                <li><a href="">CONTACT</a></li>
-            </ul>
-        </div>
-        <div class="fa fa-bars" onclick="showMenu()"></div>
-    </nav>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/eb77bfa6eb.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block headerdiv %}
 <div class="text-box">
     <h1>Placement Prediction</h1>
     <p>Placements for college students are essential as they provide a practical bridge between academic learning and the professional world.These programs offer invaluable industry exposure, fostering skill development and confidence. They serve as a crucial platform for students to apply theoretical knowledge, build a professional network, and enhance their employability.</p>
-    <a href="index.html" class="hero-btn">Visit Us To Know More</a>
+    <a href=" " class="hero-btn">Visit Us To Know More</a>
 
 </div>
+{% endblock %}
 
-</section>
-
+{% block body %}
 <!------Course-------->
 
 <section class="course">
@@ -118,7 +104,7 @@
     
 </section>
 
-<!----------testimonials--------->
+<!-- --------testimonials-------- -->
 
 <section class="testimonials">
     <h1>Reviews</h1>
@@ -130,10 +116,10 @@
             <div>
                 <p>Overall easing their transition from academia to the workforce.</p>
                 <h3>Kundan Jadhav</h3>
-                <img src="{% static 'images/svgs/star.png' %}" style="height:30px">
-                <img src="{% static 'images/svgs/star.png' %}" style="height:30px">
-                <img src="{% static 'images/svgs/star.png' %}" style="height:30px">
-                <img src="{% static 'images/svgs/star.png' %}" style="height:30px">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
                 
             </div>
         </div>
@@ -142,26 +128,25 @@
             <div>
                 <p>Overall easing their transition from academia to the workforce.</p>
                 <h3>Sejal Shigwan</h3>
-                <img src="{% static 'images/svgs/star.png' %}" style="height:30px">
-                <img src="{% static 'images/svgs/star.png' %}" style="height:30px">
-                <img src="{% static 'images/svgs/star.png' %}" style="height:30px">
-                <img src="{% static 'images/svgs/star.png' %}" style="height:30px">
-                <i class="fa fa-star-half-o"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
             </div>
         </div>
     </div>
 
 </section>
 
-<!--------- Call To Action--------->
+<!---------- Call To Action-------- -->
 
 <section class="cta">
     <h1>Enroll For The Campus Placement From Our College</h1>
-    <a href=""class="hero-btn">CONTACT US</a>
+    <a href="contact"class="hero-btn">CONTACT US</a>
 </section>
 
 
-<!-------- Footer------->
+<!-------- Footer -------->
 <section class="footer">
     <h4>About Us</h4>
     <p>Overall easing their transition from academia to the workforce.</p>
@@ -173,6 +158,4 @@
     </div>
     <p>Made with <i class="fa fa-heart-o"></i> by BE Comp Girls</p>
 </section>
-
-
-
+{% endblock %}

@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <title>GIT college website</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
@@ -11,7 +12,7 @@
 <body>
 <section class="sub-header">
     <nav>
-        <a href="index1.html"><img src="images/logo.png"></a>    
+        <a href="index1.html"><img src="{% static 'images/logo.png' %}"></a>    
         <div class="nav-links" id="navLinks">
            <i class="fa fa-times" onclick="hideMenu()"></i>
             <ul>
@@ -38,7 +39,7 @@
             <a href="" class="hero-btn red-btn">EXPLORE NOW</a>
         </div>
         <div class="about-col">
-            <img src="images/about us.jpg">
+            <img src="{% static 'images/about us.jpg' %}">
         </div>
     </div>
 </section>

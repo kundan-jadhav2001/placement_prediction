@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="/"><img src="{% static 'images/logo.png' %}" style="height:100px; width:100px"></a>    
+            <div class="nav-links" id="navLinks">
+               <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="about">ABOUT</a></li>
+                    <li><a href="course">COURSE</a></li>
+                    <li><a href="blog">BLOG</a></li>
+                    <li><a href="contact">CONTACT</a></li>
+                    <li><a href="signinup">Sign In</a></li>
+                </ul>
+            </div>
+            <div class="fa fa-bars" onclick="showMenu()"></div>
+        </nav>
+        {% block headerdiv %}
+
+        {% endblock %}
+    
+    </section>
+
+
+
+    {% block body %}
+
+    {% endblock %}
+</body>
+</html>
