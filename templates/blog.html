@@ -1,39 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <title>GIT college website</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
-</head>
-<body>
-<section class="sub-header">
-    <nav>
-        <a href="index1.html"><img src="images/logo.png"></a>    
-        <div class="nav-links" id="navLinks">
-           <i class="fa fa-times" onclick="hideMenu()"></i>
-            <ul>
-                <li><a href="">HOME</a></li>
-                <li><a href="">ABOUT</a></li>
-                <li><a href="">COURSE</a></li>
-                <li><a href="">BLOG</a></li>
-                <li><a href="">CONTACT</a></li>
-            </ul>
-        </div>
-        <i class="fa fa-bars" onclick="showMenu()"></i>
-    </nav>
-    <h1>Internship letters of Students</h1>
-</section>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+{% endblock %}
 
+{% block headerdiv %}
+<div class="text-box">
+    <h1>Internship letters of Students</h1>
+</div>
+{% endblock %}
+
+{% block body %}
 <!--------- blog page content-------->
 
 <section class="blog-content">
 
     <div class="row">
         <div class="blog-left">
-            <img src="images/certificate.jpg">
+            <img src="{% static 'images/certificate.jpg' %}">
             <h2>Our certificate & Online programs For 2023</h2>
             <p>Overall easing their transition from academia to the workforce.</p>
             <br>
@@ -58,5 +50,4 @@
     <p>Made with <i class="fa fa-heart-o"></i> by Easy Tutorials</p>
 </section>
 
-
-
+{% endblock %}
