@@ -1,0 +1,36 @@
+{% extends 'prediction/base_prediction.html' %}
+{% block title %}Report{% endblock %}
+
+{% block body %}
+<h2>Database Records</h2><br>
+
+<table class="table" style="border: 1px solid;  width: 100%; border-collapse: collapse; table-layout:fixed ">
+    <thead style="width: 50%; background-color: aqua; height: 70px;">
+      <tr style="border: 1px solid;background-color: aqua">
+        <th style="width: 2%">Sr. No.</th><th style="width: 5%">Name</th><th style="width: 5%">10th Marks</th><th style="width: 4%">12th Marks</th><th style="width: 8%">MHTCET</th><th style="width: 7%">agg_of_all_sem</th><th style="width: 7%">Relocate</th>
+        <th style="width: 7%">Python</th><th style="width: 7%">Java</th><th style="width: 7%">Web</th>
+        <th style="width: 5%">Prediction</th><th style="width: 7%">Date</th>
+      </tr>
+    <tbody>
+        {% for row in data %}
+      <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.Name}}</td>
+        <td>{{row.Tenth_Marks}}</td>
+        <td>{{row.Twelfth_Marks}}</td>
+        <td>{{row.MHTCET}}</td>
+        <td>{{row.agg_of_all_sem}}</td>
+        <td>{{row.Relocate}}</td>
+        <td>{{row.Python}}</td>
+        <td>{{row.Java}}</td>
+        <td>{{row.Web}}</td>
+        <td>{{row.prediction}}</td>
+        <td>{{row.date}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock body %}
+
+

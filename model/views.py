@@ -22,7 +22,7 @@ def course(request):
 
 
 def confirmsignup(request):
-    msg = ""
+    msg = "" 
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -39,8 +39,6 @@ def confirmsignup(request):
                 msg = "Registration completed. Please signin to continue."
             else:
                 msg = str(e)
-            
-
     return render(request, "index.html", {"msg":msg})
 
         
@@ -55,7 +53,9 @@ def confirmsignin(request):
         try: 
             usr = user.objects.get(Email=email)
             if usr.Email==email and usr.Password==password:
-                return render(request, "index1.html")
+                response = render(request, "index1.html", {"msg":msg})
+                response.set_cookie('Signin', 'True',max_age=1*24*60*60)
+                return response
             else:
                 return render(request, 'index.html', {'msg':"Email and password don't match"})
             
@@ -65,4 +65,21 @@ def confirmsignin(request):
             else:
                 msg = str(e)
     return render(request, 'index.html',{'msg':msg})
-            
+
+def predictionpage(request):
+    try:
+        value = request.COOKIES['Signin']
+        return render(request, 'prediction/predictionpage.html')
+    except KeyError:
+        return render(request, 'index.html', {'msg':"Please Signin to check the predictions."})
+
+
+def predict(request):
+    if request.method == "POST":
+        return render(request, 'prediction/result.html')
+    else:
+        return render(request, 'prediction/result.html', {'prediction':0})
+
+def report(request):
+    data = user.objects.all
+    return render(request, 'prediction/database.html', {'data':data})

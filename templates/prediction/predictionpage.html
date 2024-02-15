@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Placement Prediction System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+</head>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 4032px;
+            background-image: url('campus.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFFF00;
+        
+           }
+        .form-group {
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        select {
+            appearance: none;
+            background: #f9f9f9;
+            background-position: right center;
+            color: #333;
+            padding-right: 30px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+<body>
+    <div class="container">
+        <h1>Campus Placement Prediction System</h1>
+        <form action="predict" method="post">{% csrf_token %}
+            <div class="form-group">
+                <label for="10th Marks %">10th Marks:</label>
+                <input type="text" id="10th Marks %" name="10th Marks %">
+            </div>
+            <div class="form-group">
+                <label for="12th Marks %">12th Marks:</label>
+                <input type="text" id="12th Marks %" name="12th Marks %">
+            </div>
+            <div class="form-group">
+                <label for="MHT-CET">MHT CET Marks:</label>
+                <input type="text" id="MHT CET/ JEE" name="MHT CET/ JEE">
+            </div>
+            <div class="form-group">
+                <label for="aggOfAllSem">Aggregate of All Semesters:</label>
+                <input type="text" id="agg_Of_all_Sem" name="agg_Of_All_Sem">
+            </div>
+            <div class="form-group">
+                <label for="internships">Number of Internships:</label>
+                <input type="text" id="internships" name="internships">
+            </div>
+            <div class="form-group">
+                <label for="relocate">Are you ready to relocate:</label>
+                <select id="relocate" name="relocate">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="python">Python Knowledge:</label>
+                <select id="python" name="python">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="webDevelopment">Web Development Skills:</label>
+                <select id="webDevelopment" name="webDevelopment">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+            <button type="submit">Predict Placement</button>
+        </form>
+    </div>
+</body>
+</html>
