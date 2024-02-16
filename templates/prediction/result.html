@@ -4,17 +4,18 @@
 
 {% block body %}
 
+    <br>
     <h2 ><p style="text-align: center;">Results:</p> </h2>
     {% if prediction == 1%}
-    <h2 style="color: red;">Chances to be placed are high. Keep going. Do your Best.</h2>
+    <h2 style="color: Green;">Chances to be placed are high. Keep going. Do your Best.</h2>
 
     
     
     <br> 
     {% load static %}
-    <p style="text-align:center;"><img src="{% static 'badliver.png'%}" alt="HTML" width="350" height="250"></p>
+    <p style="text-align:center;"></p>
     {% else %}
-    <h2 style="color: blue;">Chances to be placed are low. Make sure to update your skills. All the best!</h2>
+    <h2 style="color: Red;">Chances to be placed are low. Make sure to update your skills. All the best!</h2>
     <p style="text-align:center;"></p>
 
     {% endif %}

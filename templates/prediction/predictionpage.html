@@ -10,6 +10,8 @@
     <style>
 
         body {
+            background-image: linear-gradient(rgba(255,255,255,0.4),rgba(0,0,0,0.4)),url("../../static/images/mainbg.jpg");
+            background-size: cover;
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             margin: 0;
@@ -21,8 +23,8 @@
         }
         
         .container {
-            max-width: 4032px;
-            background-image: url('campus.jpg');
+            max-width: 800px;
+            background-image: linear-gradient(rgba(255,255,255,0.5),rgba(0,0,0,0.5)),url("../../static/images/unnamed.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             padding: 20px;
@@ -82,26 +84,42 @@
         <h1>Campus Placement Prediction System</h1>
         <form action="predict" method="post">{% csrf_token %}
             <div class="form-group">
-                <label for="10th Marks %">10th Marks:</label>
-                <input type="text" id="10th Marks %" name="10th Marks %">
+                <label for="Age">Age :</label>
+                <input type="text" id="Age" name="Age" required>
             </div>
             <div class="form-group">
-                <label for="12th Marks %">12th Marks:</label>
-                <input type="text" id="12th Marks %" name="12th Marks %">
+                <label for="Gender">Gender :</label>
+                <select id="Gender" name="Gender" required>
+                    <option value="" selected disabled hidden>Choose Gender</option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
             </div>
             <div class="form-group">
-                <label for="MHT-CET">MHT CET Marks:</label>
-                <input type="text" id="MHT CET/ JEE" name="MHT CET/ JEE">
+                <label for="Stream">Stream :</label>
+                <select id="Stream" name="Stream" required>
+                    <option value="" selected disabled hidden>Choose Stream</option>
+                    <option value="0">Electronics and Communication</option>
+                    <option value="1">Computer Science</option>
+                    <option value="2">Information Technology</option>
+                    <option value="3">Mechnical</option>
+                    <option value="4">Electrical</option>
+                    <option value="5">Civil</option>
+                </select>
             </div>
             <div class="form-group">
-                <label for="aggOfAllSem">Aggregate of All Semesters:</label>
-                <input type="text" id="agg_Of_all_Sem" name="agg_Of_All_Sem">
+                <label for="Internships">Number of Internships:</label>
+                <input type="text" id="Internships" name="Internships" required>
             </div>
             <div class="form-group">
-                <label for="internships">Number of Internships:</label>
-                <input type="text" id="internships" name="internships">
+                <label for="CGPA">CGPA</label>
+                <input type="text" id="CGPA" name="CGPA" required>
             </div>
             <div class="form-group">
+                <label for="Backlogs">Number of Backlogs :</label>
+                <input type="text" id="Backlogs" name="Backlogs" required>
+            </div>
+            <!--<div class="form-group">
                 <label for="relocate">Are you ready to relocate:</label>
                 <select id="relocate" name="relocate">
                     <option value="yes">Yes</option>
@@ -123,7 +141,8 @@
                     <option value="intermediate">Intermediate</option>
                     <option value="advanced">Advanced</option>
                 </select>
-            </div>
+            </div>-->
+
             <button type="submit">Predict Placement</button>
         </form>
     </div>

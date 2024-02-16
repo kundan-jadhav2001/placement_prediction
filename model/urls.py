@@ -13,4 +13,5 @@ urlpatterns = [
     path('predictionpage', views.predictionpage),
     path('predict', views.predict),
     path('report', views.report),
+    path('front', views.front),
 ]

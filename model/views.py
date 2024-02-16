@@ -53,8 +53,8 @@ def confirmsignin(request):
         try: 
             usr = user.objects.get(Email=email)
             if usr.Email==email and usr.Password==password:
-                response = render(request, "index1.html", {"msg":msg})
-                response.set_cookie('Signin', 'True',max_age=1*24*60*60)
+                response = render(request, "prediction/predictionpage.html", {"msg":msg})
+                response.set_cookie('Signin', email ,max_age=1*24*60*60)
                 return response
             else:
                 return render(request, 'index.html', {'msg':"Email and password don't match"})
@@ -75,7 +75,32 @@ def predictionpage(request):
 
 
 def predict(request):
+    import joblib,os
+    import numpy as np
+    from django.conf import settings
+    from sklearn.preprocessing import MinMaxScaler
+    import warnings
+    warnings.simplefilter("ignore")
+    
     if request.method == "POST":
+        Age = int(request.POST["Age"])
+        Gender = int(request.POST["Gender"])
+        Stream = int(request.POST["Stream"])
+        NumOfInternships = int(request.POST["Internships"])
+        CGPA = int(request.POST["CGPA"])
+        Backlogs = int(request.POST["Backlogs"])
+
+        with open(os.path.join(settings.BASE_DIR, 'model/model_campus_placement.pkl'),'rb') as f:
+            model = joblib.load(f)
+            pred = model.predict([[Age,Gender,Stream,NumOfInternships,CGPA,Backlogs]])[0]
+
+        if pred:
+            print("prediction is ", pred)
+            # db = personality(name=name,gender=gender,age=age,openness=openness,neuroticism=neuroticism,conscientiousness=conscientiousness,agreeableness=agreeableness,extraversion=extraversion,result=pred[0])
+            # db.save()
+            return render(request, 'prediction/result.html', {'prediction':pred})
+
+
         return render(request, 'prediction/result.html')
     else:
         return render(request, 'prediction/result.html', {'prediction':0})
@@ -83,3 +108,6 @@ def predict(request):
 def report(request):
     data = user.objects.all
     return render(request, 'prediction/database.html', {'data':data})
+
+def front(request):
+    return render(request, 'prediction/front.html')
