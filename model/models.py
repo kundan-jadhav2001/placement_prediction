@@ -11,13 +11,13 @@ class user(models.Model):
         return self.name,self.email
 
 class predicted(models.Model):
+    Id = models.AutoField(primary_key=True,null=False)
     Name = models.CharField(null=False, max_length=20)
-    Email = models.EmailField(null=False,primary_key=True)
-    Tenthmarks = models.IntegerField(null=False)
-    Twelthmarks = models.IntegerField(null=False)
-    CETmarks = models.IntegerField(null=False)
-    AggOfAllSem = models.IntegerField(null=False)
+    Email = models.EmailField(null=False)
+    Age = models.IntegerField(null=False)
+    Gender = models.CharField(null=False, max_length=10)
+    Stream = models.CharField(null=False,max_length=30)
     NumberOfInternships = models.IntegerField(null=False)
-    ReadyToRelocate = models.BooleanField(null=False)
-    Python = models.CharField(null=False, max_length=20)
-    WebDevelopment = models.CharField(null=False, max_length=20)
+    CGPA = models.IntegerField(null=False)
+    Backlogs = models.IntegerField(null=False)
+    Prediction = models.CharField(null=False, max_length=10)

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import user
+from .models import user, predicted
 
 # Create your views here.
 def home(request):
@@ -95,9 +95,23 @@ def predict(request):
             pred = model.predict([[Age,Gender,Stream,NumOfInternships,CGPA,Backlogs]])[0]
 
         if pred:
-            print("prediction is ", pred)
-            # db = personality(name=name,gender=gender,age=age,openness=openness,neuroticism=neuroticism,conscientiousness=conscientiousness,agreeableness=agreeableness,extraversion=extraversion,result=pred[0])
-            # db.save()
+            try:
+                email = request.COOKIES['Signin']
+                name = user.objects.get(Email=email).Name
+            except KeyError:
+                return render(request, 'index.html', {'msg':"Please Signin to check the predictions."})
+            predicted(
+                Name=name,
+                Email=email,
+                Age=Age,
+                Gender= "Male" if Gender==1 else"Female",
+                Stream= "Electronics and Communication" if Stream==0 else "Computer Science" if Stream==1 else "Information Technology" if Stream==2 else "Mechanical" if Stream==3 else "Electrical" if Stream==4 else "Civil",
+                NumberOfInternships=NumOfInternships,
+                CGPA=CGPA,
+                Backlogs=Backlogs,
+                Prediction= "High Chances" if pred==1 else "Low Chances"
+                ).save()
+            
             return render(request, 'prediction/result.html', {'prediction':pred})
 
 
@@ -106,7 +120,16 @@ def predict(request):
         return render(request, 'prediction/result.html', {'prediction':0})
 
 def report(request):
-    data = user.objects.all
+
+    try:
+        value = request.COOKIES['Signin']
+        data = predicted.objects.filter(Email=value)
+        print("report" ,data)
+    except KeyError:
+        return render(request, 'index.html', {'msg':"Please Signin to check the predictions."})
+    except Exception as e:
+        print(e)
+        return render(request, 'prediction/database.html', {'msg':"No data to show"})
     return render(request, 'prediction/database.html', {'data':data})
 
 def front(request):
