@@ -25,7 +25,7 @@ def confirmsignup(request):
     msg = "" 
     if request.method == 'POST':
         name = request.POST['name']
-        email = request.POST['email']
+        email = request.POST['email'].lower()
         password = request.POST['password']
         
         try: 
@@ -89,10 +89,15 @@ def predict(request):
         NumOfInternships = int(request.POST["Internships"])
         CGPA = int(request.POST["CGPA"])
         Backlogs = int(request.POST["Backlogs"])
+        WebDevlopment = int(request.POST["webdevelopment"])
+        DataScience = int(request.POST["datascience"])
+        GameDevlopment = int(request.POST["gamedevelopment"])
+        AndroidDevlopment = int(request.POST["androiddevelopment"])
+        GraphicsDesigner = int(request.POST["graphicsdesigner"])
 
         with open(os.path.join(settings.BASE_DIR, 'model/model_campus_placement.pkl'),'rb') as f:
             model = joblib.load(f)
-            pred = model.predict([[Age,Gender,Stream,NumOfInternships,CGPA,Backlogs]])[0]
+            pred = model.predict([[Age,Gender,Stream,NumOfInternships,CGPA,Backlogs,WebDevlopment,DataScience,GameDevlopment,AndroidDevlopment,GraphicsDesigner]])[0]
 
         if pred:
             try:
@@ -109,6 +114,11 @@ def predict(request):
                 NumberOfInternships=NumOfInternships,
                 CGPA=CGPA,
                 Backlogs=Backlogs,
+                WebDevlopment= WebDevlopment,
+                DataScience= DataScience,
+                GameDevlopment=GameDevlopment,
+                AndroidDevlopment=AndroidDevlopment,
+                GraphicsDesigner=GraphicsDesigner,
                 Prediction= "High Chances" if pred==1 else "Low Chances"
                 ).save()
             

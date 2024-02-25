@@ -6,14 +6,16 @@
 
 <table class="table" style="border: 1px solid;  width: 100%; border-collapse: collapse; table-layout:fixed ">
     <thead style="width: 50%; background-color: aqua; height: 70px;">
-      <tr style="border: 1px solid;background-color: aqua">
-        <th style="width: 2%">Sr. No.</th><th style="width: 5%">Name</th><th style="width: 10%">Email</th><th style="width: 4%">Age</th><th style="width: 8%">Gender</th><th style="width: 7%">Stream</th><th style="width: 10%">Number of Internships</th>
-        <th style="width: 4%">CGPA</th><th style="width: 4%">Backlogs</th><th style="width: 7%">Prediction</th>
+      <tr style="border: 1px solid;background-color: red">
+        <th style="width: 10px">Sr. No.</th><th >Name</th><th >Email</th><th >Age</th>
+        <th >Gender</th><th >Stream</th><th >Number of Internships</th><th >CGPA</th>
+        <th >Backlogs</th><th >Web Devlopment</th><th >Data Science</th><th >Game Devlopment</th>
+        <th >Android Devlopment</th><th >Graphics Designer</th><th >Prediction</th>
       </tr>
     <tbody>
       {{msg}}
         {% for row in data %}
-      <tr>
+      <tr style="overflow-wrap: break-word;">
         <td>{{row.Id}}</td>
         <td>{{row.Name}}</td>
         <td>{{row.Email}}</td>
@@ -23,6 +25,11 @@
         <td>{{row.NumberOfInternships}}</td>
         <td>{{row.CGPA}}</td>
         <td>{{row.Backlogs}}</td>
+        <td>{{row.WebDevlopment}}</td>
+        <td>{{row.DataScience}}</td>
+        <td>{{row.GameDevlopment}}</td>
+        <td>{{row.AndroidDevlopment}}</td>
+        <td>{{row.GraphicsDesigner}}</td>
         <td>{{row.Prediction}}</td>
       </tr>
       {% endfor %}
