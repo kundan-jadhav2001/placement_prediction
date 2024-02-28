@@ -6,7 +6,7 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("../images/background.jpg");
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnu9mpNm2sn4MQekXDxrMwurRlXfAR5uQ6EQ&usqp=CAU");
     background-position: center;
     background-size: cover;
     position: relative;
@@ -330,7 +330,7 @@ footer h4{
 .sub-header{
     height: 60vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/background.jpeg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnu9mpNm2sn4MQekXDxrMwurRlXfAR5uQ6EQ&usqp=CAU");
     background-position: center;
     background-size: cover;
     text-align: center;
