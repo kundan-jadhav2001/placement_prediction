@@ -1,6 +1,19 @@
 {% extends 'prediction/base_prediction.html' %}
 
-{% block title %}Prediction{% endblock title %}
+{% block head %}
+
+    <title>Prediction</title>
+    <style>
+        .card{
+            align-items:center; 
+            width: 400px;
+            float: inline-start;
+        }
+
+    </style>
+
+
+{% endblock %}
 
 {% block body %}
 
@@ -19,6 +32,75 @@
     <p style="text-align:center;"></p>
 
     {% endif %}
+
+
+    <h1 style="float: left; margin-right: 20px;"> Suggestion : </h1>
+    <br><br><br><br>
+    <div>
+        {% if 'WebDevelopment' in beginner %}
+            <div class="card">
+                <img src="https://assets-global.website-files.com/6410ebf8e483b5bb2c86eb27/6410ebf8e483b53d6186fc53_ABM%20College%20Web%20developer%20main.jpg" class="card-img-top" alt="..." style="width:100px; height:100px;">
+            
+                <div class="card-body">
+                <h5 class="card-title">Web Development</h5>
+                <p class="card-text">Use this reference to improve your WebDevelopment skills</p>
+                <a href="https://youtu.be/z0n1aQ3IxWI?si=MpyPFlED-TZRcHaZ" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if 'DataScience' in beginner %}
+            <div class="card">
+                <img src="https://assets-global.website-files.com/6410ebf8e483b5bb2c86eb27/6410ebf8e483b53d6186fc53_ABM%20College%20Web%20developer%20main.jpg" class="card-img-top" alt="..." style="width:100px; height:100px;">
+            
+                <div class="card-body">
+                <h5 class="card-title">Data Science</h5>
+                <p class="card-text">Use this reference to improve your WebDevelopment skills</p>
+                <a href="https://youtu.be/z0n1aQ3IxWI?si=MpyPFlED-TZRcHaZ" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if 'GameDevelopment' in beginner %}
+            <div class="card">
+                <img src="https://assets-global.website-files.com/6410ebf8e483b5bb2c86eb27/6410ebf8e483b53d6186fc53_ABM%20College%20Web%20developer%20main.jpg" class="card-img-top" alt="..." style="width:100px; height:100px;">
+            
+                <div class="card-body">
+                <h5 class="card-title">Game Development</h5>
+                <p class="card-text">Use this reference to improve your WebDevelopment skills</p>
+                <a href="https://youtu.be/z0n1aQ3IxWI?si=MpyPFlED-TZRcHaZ" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if 'AndroidDevelopment' in beginner %}
+            <div class="card">
+                <img src="https://assets-global.website-files.com/6410ebf8e483b5bb2c86eb27/6410ebf8e483b53d6186fc53_ABM%20College%20Web%20developer%20main.jpg" class="card-img-top" alt="..." style="width:100px; height:100px;">
+            
+                <div class="card-body">
+                <h5 class="card-title">Android Development</h5>
+                <p class="card-text">Use this reference to improve your WebDevelopment skills</p>
+                <a href="https://youtu.be/z0n1aQ3IxWI?si=MpyPFlED-TZRcHaZ" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if 'GraphicsDesigner' in beginner %}
+            <div class="card">
+                <img src="https://assets-global.website-files.com/6410ebf8e483b5bb2c86eb27/6410ebf8e483b53d6186fc53_ABM%20College%20Web%20developer%20main.jpg" class="card-img-top" alt="..." style="width:100px; height:100px;">
+            
+                <div class="card-body">
+                <h5 class="card-title">Graphics Designer</h5>
+                <p class="card-text">Use this reference to improve your WebDevelopment skills</p>
+                <a href="https://youtu.be/z0n1aQ3IxWI?si=MpyPFlED-TZRcHaZ" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+
+
 
 {% endblock %}
 

@@ -121,8 +121,19 @@ def predict(request):
                 GraphicsDesigner=GraphicsDesigner,
                 Prediction= "High Chances" if pred==1 else "Low Chances"
                 ).save()
-            
-            return render(request, 'prediction/result.html', {'prediction':pred})
+            beginner = []
+            if WebDevlopment==0:
+                beginner.append("WebDevelopment")
+            if DataScience==0:
+                beginner.append("DataScience")
+            if GameDevlopment==0:
+                beginner.append("GameDevelopment")
+            if AndroidDevlopment==0:
+                beginner.append("AndroidDevelopment")
+            if GraphicsDesigner==0:
+                beginner.append("GraphicsDesigner")
+            print(beginner)
+            return render(request, 'prediction/result.html', {'prediction':pred,'beginner':beginner})
 
 
         return render(request, 'prediction/result.html')
